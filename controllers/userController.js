@@ -26,6 +26,9 @@ exports.addUsers = async (req, res, next) => {
             totalCount
         });
     } catch (err) {
+        if (req.file && req.file.path) {
+            fs.unlinkSync(req.file.path);
+        }
         next(err);
     }
 };
