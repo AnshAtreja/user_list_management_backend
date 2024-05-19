@@ -11,3 +11,21 @@ exports.createList = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.deleteList = async (req, res, next) => {
+    try {
+        const { listId } = req.params;
+
+        await User.deleteMany({ listId });
+
+        const deletedList = await List.findByIdAndDelete(listId);
+
+        if (!deletedList) {
+            return next(new AppError('List not found', 404));
+        }
+
+        res.status(204).end(); 
+    } catch (error) {
+        next(error);
+    }
+};
