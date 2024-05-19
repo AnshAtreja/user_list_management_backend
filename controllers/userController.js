@@ -2,6 +2,7 @@ const fs = require('fs');
 const User = require('../models/User');
 const List = require('../models/List');
 const { parseCSV } = require('../utils/csvParser');
+const AppError = require('../utils/errorHandler');
 
 exports.addUsers = async (req, res, next) => {
     try {
@@ -60,7 +61,11 @@ async function processUsers(filePath, listId, customProperties) {
             await newUser.save();
             successCount++;
         } catch (err) {
-            errors.push({ user: userData, error: err.message });
+            if (err.code === 11000) {
+                errors.push({ user: userData, error: 'Duplicate email within the same list' });
+            } else {
+                errors.push({ user: userData, error: err.message });
+            }
             failureCount++;
         }
     }

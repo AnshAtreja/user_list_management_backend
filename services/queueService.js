@@ -48,7 +48,7 @@ amqp.connect('amqp://localhost', (error0, connection) => {
 
         channel.consume(queue, async (msg) => {
             const { to, subject, body } = JSON.parse(msg.content.toString());
-            const unsubscribeLink = `http://${domain}/lists/${to.listId}/unsubscribe?email=${encodeURIComponent(to.email)}`
+            const unsubscribeLink = `http://${domain}/emails/${to.listId}/unsubscribe?email=${encodeURIComponent(to.email)}`
             await sendEmail(to.email, subject, body, unsubscribeLink);
         }, { noAck: true });
     });
