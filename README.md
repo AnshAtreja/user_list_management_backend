@@ -66,3 +66,12 @@ This application is built using the following technologies:
    ```bash
    npm start
 
+## Usage
+- **Send Emails** : Use the provided API to send emails to all users in a list
+- **Create Lists** : Create lists using '.csv' file uploads
+- **Unsubscribe Users** : Users can unsubscribe from email lists using provided endpoint
+
+## API Documentation
+
+The API documentation is available [here](https://documenter.getpostman.com/link-to-your-api-docs).
+
