@@ -1,5 +1,4 @@
 const List = require('../models/List');
-const { handleValidationErrorDB } = require('../utils/errorHandler');
 
 exports.createList = async (req, res, next) => {
     try {
