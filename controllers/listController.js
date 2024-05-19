@@ -12,20 +12,24 @@ exports.createList = async (req, res, next) => {
     }
 };
 
-exports.deleteList = async (req, res, next) => {
-    try {
-        const { listId } = req.params;
 
-        await User.deleteMany({ listId });
+//Not needed according to the requirements of task, created for testing purposes
+// exports.deleteList = async (req, res, next) => {
+//     try {
+//         const { listId } = req.params;
+        
+//         const list = await List.findById(listId);
 
-        const deletedList = await List.findByIdAndDelete(listId);
+//         if (!list) {
+//             return res.status(404).send({ error: 'List not found' });
+//         }
+        
+//         await User.deleteMany({ listId });
 
-        if (!deletedList) {
-            return next(new AppError('List not found', 404));
-        }
+//         await List.findByIdAndDelete(listId);
 
-        res.status(204).end(); 
-    } catch (error) {
-        next(error);
-    }
-};
+//         res.status(200).send({ message: 'List and associated users deleted successfully' });
+//     } catch (error) {
+//         next(error);
+//     }
+// };

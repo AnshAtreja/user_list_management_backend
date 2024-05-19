@@ -5,6 +5,6 @@ const userController = require('../controllers/userController');
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
-router.post('/:listId/users', upload.single('file'), userController.addUsers);
+router.post('/create/:listId', upload.single('file'), userController.addUsers);
 
 module.exports = router;
