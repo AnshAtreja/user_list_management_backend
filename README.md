@@ -2,6 +2,18 @@
 
 This is the backend component of the User List Management project. It provides functionality for managing user lists and sending emails to users.
 
+## Technologies Used
+
+This application is built using the following technologies:
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- RabbitMQ
+- Nodemailer
+- dotenv
+
 ## Setup RabbitMQ
 
 1. **Install RabbitMQ:**
