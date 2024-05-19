@@ -51,6 +51,11 @@ async function processUsers(filePath, listId, customProperties) {
         try {
             userData.listId = listId;
 
+            const existingUser = await User.findOne({ email: userData.email, listId });
+            if (existingUser) {
+                throw new Error('Duplicate email within the same list');
+            }
+
             const properties = {};
             for (const key in userData) {
                 if (!['name', 'email', 'listId'].includes(key)) {

@@ -1,4 +1,5 @@
 const List = require('../models/List');
+const User = require('../models/User')
 
 exports.createList = async (req, res, next) => {
     try {
@@ -11,7 +12,6 @@ exports.createList = async (req, res, next) => {
     }
 };
 
-
 //Not needed according to the requirements of task, created for testing purposes
 exports.deleteList = async (req, res, next) => {
     try {
@@ -23,12 +23,22 @@ exports.deleteList = async (req, res, next) => {
             return res.status(404).send({ error: 'List not found' });
         }
         
-        await User.deleteMany({ listId });
-
         await List.findByIdAndDelete(listId);
+        
+        await User.deleteMany({ listId });
 
         res.status(200).send({ message: 'List and associated users deleted successfully' });
     } catch (error) {
         next(error);
+    }
+};
+
+//Not needed according to the requirements of task, created for testing purposes
+exports.getAllLists = async (req, res, next) => {
+    try {
+        const lists = await List.find();
+        res.status(200).send(lists);
+    } catch (err) {
+        next(err);
     }
 };
