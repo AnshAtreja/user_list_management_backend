@@ -73,5 +73,5 @@ This application is built using the following technologies:
 
 ## API Documentation
 
-The API documentation is available [here](https://documenter.getpostman.com/link-to-your-api-docs).
+The API documentation is available [here](https://documenter.getpostman.com/view/27271994/2sA3QmDZpF).
 
