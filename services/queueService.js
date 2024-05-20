@@ -2,11 +2,12 @@ const amqp = require('amqplib/callback_api');
 const { sendEmail } = require('./emailService');
 const port = process.env.PORT || 3000;
 const domain = process.env.DOMAIN || `localhost:${port}`;
+const amqp_url = process.env.AMQP_URL || 'amqp://localhost'
 
 const queue = 'email_queue';
 
 exports.enqueueEmail = (user, subject, body) => {
-    amqp.connect('amqp://localhost', (error0, connection) => {
+    amqp.connect(amqp_url, (error0, connection) => {
         if (error0) {
             throw error0;
         }
@@ -35,7 +36,7 @@ exports.enqueueEmail = (user, subject, body) => {
     });
 };
 
-amqp.connect('amqp://localhost', (error0, connection) => {
+amqp.connect(amqp_url, (error0, connection) => {
     if (error0) {
         throw error0;
     }

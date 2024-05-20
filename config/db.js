@@ -3,7 +3,8 @@ const { AppError } = require('../utils/errorHandler');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/user-management', {
+        const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/user-management';
+        await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
