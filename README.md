@@ -51,6 +51,8 @@ This application is built using the following technologies:
     MONGODB_URI=mongodb://localhost:27017/user-management
     EMAIL_USER=your_email@example.com
     EMAIL_PASS=your_email_password
+   DOMAIN=your_app_domain
+   AMQP_URL=your_amqp_url
    ```
    Here :
    - PORT : The port number on which the server runs on
@@ -62,6 +64,8 @@ This application is built using the following technologies:
      2. Ensure Two Factor Verification is enabled
      3. In the search bar type "App passwords"
      4. Create a new app password and then use that generated password in the 'EMAIL_PASS' variable
+   - AMQP_URL : **Not necessary for running on local host**. Use any message broker that can connect to Rabbit MQ service and add its url
+   - DOMAIN : **Not necessary for running on local host**. Enter your domain url
 4. **Start the server**
    ```bash
    npm start
