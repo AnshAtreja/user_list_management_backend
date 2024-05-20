@@ -6,11 +6,17 @@ const userRoutes = require('./routes/userRoutes');
 const emailRoutes = require('./routes/emailRoutes');
 const errorHandler = require('./utils/errorHandler');
 
-
 const app = express();
 app.use(express.json());
 
-connectDB()
+connectDB();
+
+app.get('/', (req, res) => {
+    res.send(`
+        <h1>Welcome to My Mathongo Task App</h1>
+        <p>API Documentation: <a href="https://documenter.getpostman.com/view/27271994/2sA3QmDZpF">Documentation</a></p>
+    `);
+});
 
 app.use('/lists', listRoutes);
 app.use('/users', userRoutes);
