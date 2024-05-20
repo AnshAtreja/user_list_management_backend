@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
     res.send(`
         <h1>Welcome to My Mathongo Task App</h1>
         <p>API Documentation: <a href="https://documenter.getpostman.com/view/27271994/2sA3QmDZpF">Documentation</a></p>
+        <p>Please ensure RabbitMQ server running on your local host for testing API's</p>
     `);
 });
 
