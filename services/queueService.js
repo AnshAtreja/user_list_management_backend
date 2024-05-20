@@ -2,7 +2,7 @@ const amqp = require('amqplib/callback_api');
 const { sendEmail } = require('./emailService');
 const port = process.env.PORT || 3000;
 const domain = process.env.DOMAIN || `localhost:${port}`;
-const amqp_url = process.env.AMQP_URL || 'amqp://localhost'
+const amqp_url = 'amqp://localhost'
 
 const queue = 'email_queue';
 
